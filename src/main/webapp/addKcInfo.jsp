@@ -9,19 +9,19 @@
 			<s:form action="addKc.action" method="post">
 				 <table border="0" cellspacing="1" cellpadding="8" width="300">
 				<tr>
-					<s:textfield name="kc.kch" label="课程号"></s:textfield>
+					<s:textfield name="kcb.kch" label="课程号"></s:textfield>
 				</tr>
 				<tr>
-					<s:textfield name="kc.kcm" label="课程名"></s:textfield>
+					<s:textfield name="kcb.kcm" label="课程名"></s:textfield>
 				</tr>
 				<tr>
-					<s:textfield name="kc.kxxq" label="开课学期"></s:textfield>
+					<s:textfield name="kcb.kxxq" label="开课学期"></s:textfield>
 				</tr>
 				<tr>
-					<s:textfield name="kc.xs" label="学时"></s:textfield>
+					<s:textfield name="kcb.xs" label="学时"></s:textfield>
 				</tr>
 				<tr>
-					<s:textfield name="kc.xf" label="学分"></s:textfield>
+					<s:textfield name="kcb.xf" label="学分"></s:textfield>
 				</tr>
 			</table> 
 			<p>

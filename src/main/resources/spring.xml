@@ -14,12 +14,12 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver">
+			value="com.mysql.cj.jdbc.Driver">
 		</property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/xscj?characterEncoding=gbk"></property>
+			value="jdbc:mysql://localhost:3306/xscj?useSSL=false&amp;serverTimezone=UTC"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value="123"></property>
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -36,40 +36,45 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 		<property name="mappingResources">
 			<list>
 				<value>cn/edu/ujn/lab3/model/Dlb.hbm.xml</value>
+				<value>cn/edu/ujn/lab3/model/Kcb.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
 	<bean id="dlDao" class="cn.edu.ujn.lab3.dao.DlDaoImpl">
-	<property name="sessionFactory">
-	<ref bean="sessionFactory"></ref>
-	</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
 	</bean>
-	
+
 	<bean id="dlService" class="cn.edu.ujn.lab3.service.DlServiceImpl">
-	<property name="dlDao">
-	<ref bean="dlDao"/>
-	</property>
+		<property name="dlDao">
+			<ref bean="dlDao" />
+		</property>
 	</bean>
 	<bean id="kcDao" class="cn.edu.ujn.lab3.dao.KcDaoImp">
-	<property name="sessionFactory">
-	<ref bean="sessionFactory"/>
-	</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
 	</bean>
 	<bean id="kcService" class="cn.edu.ujn.lab3.service.KcServiceImp">
-	<property name="kcDao">
-	<ref bean="kcDao"/>
-	</property>
+		<property name="kcDao">
+			<ref bean="kcDao" />
+		</property>
 	</bean>
-	
+
 	<bean id="dlAction" class="cn.edu.ujn.lab3.action.DlAction">
-	<property name="dlService">
-	<ref bean="dlService"/>
-	</property>
-	<property name="kcService">
-	<ref bean="kcService"/>
-	</property>
+		<property name="dlService">
+			<ref bean="dlService" />
+		</property>
 	</bean>
-	
 
-
+	<bean id="kcAction" class="cn.edu.ujn.lab3.action.KcAction">
+		<property name="kcService">
+			<ref bean="kcService" />
+		</property>
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

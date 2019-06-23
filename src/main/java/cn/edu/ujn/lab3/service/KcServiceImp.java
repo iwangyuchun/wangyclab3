@@ -15,25 +15,28 @@ public class KcServiceImp implements IKcService {
 	@Override
 	public void save(Kcb kc) {
 		// TODO Auto-generated method stub
+		kcDao.save(kc);
 
 	}
 
 	@Override
 	public void delete(String kch) {
 		// TODO Auto-generated method stub
+		kcDao.delete(kch);
 
 	}
 
 	@Override
 	public void update(Kcb kc) {
 		// TODO Auto-generated method stub
+		kcDao.update(kc);
 
 	}
 
 	@Override
 	public Kcb find(String kch) {
 		// TODO Auto-generated method stub
-		return null;
+		return kcDao.find(kch);
 	}
 
 	@Override

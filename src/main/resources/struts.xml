@@ -13,7 +13,24 @@
     <result name="error">login.jsp</result>
     </action>
     
-    <action name="getAllKc" class="dlAction" method="getAllKc"></action>
+    <action name="getAllKc" class="kcAction" method="getAllKc">
+    <result name="success">allKc.jsp</result>
+    </action>
+    <action name="deleteKc" class="kcAction" method="deleteKc">
+    <result name="success">deleteKc_success.jsp</result>
+    </action>
+    <action name="addKc" class="kcAction" method="addKc">
+    <result name="ok">addKc_success.jsp</result>
+    <result name="error">addKc_error.jsp</result>
+    </action>
+    <action name="toUpdate" class="kcAction" method="toUpdate">
+    <result name="success">updateKcView.jsp</result>
+    <result name="error">addKc_error.jsp</result>
+    </action>
+    <action name="updateKc" class="kcAction" method="updateKc">
+    <result name="success">addKc_success.jsp</result>
+    <result name="error">addKc_error.jsp</result>
+    </action>
 	
 
     </package>
