@@ -43,10 +43,8 @@ public class KcDaoImp extends HibernateDaoSupport implements IKcDao {
 	@Override
 	public Kcb find(String kch) {
 		// TODO Auto-generated method stub
-		Kcb kcb = new Kcb();
-		kcb.setKch(kch);
-		List<Kcb> find = getHibernateTemplate().findByExample(kcb);
-		return find.get(0);
+		Kcb kcb = getHibernateTemplate().get(Kcb.class, kch);
+		return kcb;
 	}
 
 	@Override
